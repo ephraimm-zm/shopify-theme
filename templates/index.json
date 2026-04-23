@@ -125,56 +125,56 @@
     "premium_collection_grid": {
       "type": "premium-collection-grid",
       "blocks": {
-        "product_1": {
+        "product_card_BpyM9m": {
           "type": "product_card",
           "settings": {
             "product": "",
-            "image_override": "",
+            "image_override": "shopify://shop_images/gymshark3.avif",
             "show_badge": true,
             "badge_text": "NEW",
-            "badge_color": "#FF6B6B",
+            "badge_color": "#ff6b6b",
             "badge_text_color": "#000000"
           }
         },
-        "product_2": {
+        "product_card_VbbVqM": {
           "type": "product_card",
           "settings": {
             "product": "",
-            "image_override": "",
+            "image_override": "shopify://shop_images/gymshark4.avif",
             "show_badge": true,
-            "badge_text": "-30%",
-            "badge_color": "#4ECDC4",
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
             "badge_text_color": "#000000"
           }
         },
-        "product_3": {
+        "product_card_FiFaYL": {
           "type": "product_card",
           "settings": {
-            "product": "",
-            "image_override": "",
+            "product": "the-collection-snowboard-hydrogen",
+            "image_override": "shopify://shop_images/gymshark5.avif",
             "show_badge": true,
-            "badge_text": "SALE",
-            "badge_color": "#FFD93D",
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
             "badge_text_color": "#000000"
           }
         },
-        "product_4": {
+        "product_card_GTNN69": {
           "type": "product_card",
           "settings": {
-            "product": "",
-            "image_override": "",
-            "show_badge": false,
-            "badge_text": "",
-            "badge_color": "#FF6B6B",
+            "product": "the-3p-fulfilled-snowboard",
+            "image_override": "shopify://shop_images/gymshark6.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
             "badge_text_color": "#000000"
           }
         }
       },
       "block_order": [
-        "product_1",
-        "product_2",
-        "product_3",
-        "product_4"
+        "product_card_BpyM9m",
+        "product_card_VbbVqM",
+        "product_card_FiFaYL",
+        "product_card_GTNN69"
       ],
       "settings": {
         "title": "FEATURED PRODUCTS",
@@ -188,7 +188,7 @@
       "type": "premium-collection-grid",
       "name": "Premium Collection Grid",
       "settings": {
-        "collection": "automated-collection",
+        "title": "FEATURED PRODUCTS",
         "gap_size": 24,
         "max_width": 1200,
         "padding_top": 60,

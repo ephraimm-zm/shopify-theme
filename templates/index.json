@@ -135,12 +135,28 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "premium_collection_grid_cJU9Rh": {
+      "type": "premium-collection-grid",
+      "name": "Premium Collection Grid",
+      "settings": {
+        "collection": "automated-collection",
+        "gap_size": 24,
+        "max_width": 1200,
+        "show_badge": true,
+        "badge_text": "NEW",
+        "badge_color": "#FF6B6B",
+        "badge_text_color": "#000000",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "split_featured_collections_ArCTJ3",
-    "premium_collection_grid"
+    "premium_collection_grid",
+    "premium_collection_grid_cJU9Rh"
   ]
 }

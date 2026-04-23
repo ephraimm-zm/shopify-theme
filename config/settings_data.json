@@ -1,0 +1,10 @@
+{
+  "current": {
+    "color_primary": "#000000",
+    "color_accent": "#00e0c6",
+    "color_body_text": "#1a1a1a",
+    "color_background": "#ffffff",
+    "type_base_size": 16,
+    "page_width": 1440
+  }
+}

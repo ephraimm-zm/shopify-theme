@@ -1,0 +1,41 @@
+<div class="product-card" data-product-id="{{ product.id }}">
+  <div class="product-card__media">
+    <a href="{{ product.url }}" class="product-card__image-link" tabindex="-1" aria-hidden="true">
+      {%- if product.featured_image -%}
+        {{
+          product.featured_image
+          | image_url: width: 600
+          | image_tag:
+            loading: 'lazy',
+            class: 'product-card__image',
+            alt: product.featured_image.alt | default: product.title,
+            widths: '300, 400, 600'
+        }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
+      {%- endif -%}
+    </a>
+
+    {%- if product.available == false -%}
+      <span class="product-card__badge product-card__badge--sold-out">Sold out</span>
+    {%- elsif product.compare_at_price > product.price -%}
+      <span class="product-card__badge product-card__badge--sale">Sale</span>
+    {%- endif -%}
+
+    <button
+      class="product-card__quick-add btn btn--primary"
+      data-product-handle="{{ product.handle }}"
+      aria-label="Quick add {{ product.title }}"
+    >
+      Quick Add
+    </button>
+  </div>
+
+  <div class="product-card__info">
+    <p class="product-card__vendor">{{ product.vendor }}</p>
+    <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>
+    <div class="product-card__price">
+      {%- render 'price', product: product -%}
+    </div>
+  </div>
+</div>

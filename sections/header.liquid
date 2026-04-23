@@ -1,0 +1,118 @@
+<header
+  class="header{% if section.settings.sticky_header %} header--sticky{% endif %}"
+  data-header
+>
+  <div class="header__inner page-width">
+
+    <!-- Mobile: hamburger -->
+    <button
+      class="header__menu-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="SiteNav"
+      data-menu-toggle
+    >
+      <span class="header__hamburger"></span>
+    </button>
+
+    <!-- Logo -->
+    <a href="/" class="header__logo-link">
+      {%- if section.settings.logo != blank -%}
+        {{
+          section.settings.logo
+          | image_url: width: 200
+          | image_tag: alt: shop.name, class: 'header__logo-image', loading: 'eager'
+        }}
+      {%- else -%}
+        <span class="header__logo-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav id="SiteNav" class="header__nav" aria-label="Main navigation">
+      <ul class="header__nav-list" role="list">
+        {%- for link in section.settings.menu.links -%}
+          {%- if link.links != blank -%}
+            <li class="header__nav-item header__nav-item--has-dropdown">
+              <button
+                class="header__nav-link header__nav-link--dropdown-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                {{ link.title }}
+                <span class="header__nav-chevron" aria-hidden="true">&#8964;</span>
+              </button>
+              <div class="header__dropdown mega-menu">
+                <div class="page-width">
+                  <ul class="mega-menu__list" role="list">
+                    {%- for child_link in link.links -%}
+                      <li class="mega-menu__item">
+                        <a href="{{ child_link.url }}" class="mega-menu__link">{{ child_link.title }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </div>
+            </li>
+          {%- else -%}
+            <li class="header__nav-item">
+              <a
+                href="{{ link.url }}"
+                class="header__nav-link{% if link.active %} header__nav-link--active{% endif %}"
+              >
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <!-- Header icons -->
+    <div class="header__icons">
+      <button class="header__icon-btn" aria-label="Search" data-search-toggle>
+        {%- render 'icon-search' -%}
+      </button>
+      <a href="{{ routes.account_url }}" class="header__icon-btn" aria-label="Account">
+        {%- render 'icon-account' -%}
+      </a>
+      <button class="header__icon-btn header__cart-btn" aria-label="Open cart" data-cart-toggle>
+        {%- render 'icon-cart' -%}
+        <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "Transparent header over hero",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

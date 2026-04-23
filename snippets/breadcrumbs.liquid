@@ -1,0 +1,41 @@
+{%- unless request.page_type == 'index' -%}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumbs__list" role="list">
+      <li class="breadcrumbs__item">
+        <a href="/" class="breadcrumbs__link">Home</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+      </li>
+
+      {%- if request.page_type == 'product' -%}
+        {%- if collection -%}
+          <li class="breadcrumbs__item">
+            <a href="{{ collection.url }}" class="breadcrumbs__link">{{ collection.title }}</a>
+            <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          </li>
+        {%- endif -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          {{ product.title }}
+        </li>
+
+      {%- elsif request.page_type == 'collection' -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          {{ collection.title }}
+        </li>
+
+      {%- elsif request.page_type == 'article' -%}
+        <li class="breadcrumbs__item">
+          <a href="{{ blog.url }}" class="breadcrumbs__link">{{ blog.title }}</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          {{ article.title }}
+        </li>
+
+      {%- else -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          {{ page_title }}
+        </li>
+      {%- endif -%}
+    </ol>
+  </nav>
+{%- endunless -%}

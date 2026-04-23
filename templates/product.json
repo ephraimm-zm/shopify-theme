@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "recently-viewed": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "heading": "YOU MAY ALSO LIKE"
+      }
+    }
+  },
+  "order": ["main", "recently-viewed"]
+}

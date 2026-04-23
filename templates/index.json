@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "message": "FREE DELIVERY ON ORDERS OVER £50 | SHOP NOW"
+      }
+    },
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "BE A VISIONARY",
+        "subheading": "New season. New you.",
+        "button_label": "Shop Now",
+        "button_url": "/collections/all"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "NEW ARRIVALS",
+        "collection": ""
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "BUILT FOR PERFORMANCE",
+        "text": "Every piece engineered to push your limits.",
+        "button_label": "Shop Performance",
+        "button_url": "/collections/performance"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "JOIN THE FAMILY",
+        "subheading": "Sign up for early access, exclusive drops and 10% off your first order."
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "hero-banner",
+    "featured-collection",
+    "image-with-text",
+    "newsletter"
+  ]
+}

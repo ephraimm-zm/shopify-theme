@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "heading": "Blog",
+        "show_image": true
+      }
+    }
+  },
+  "order": ["main"]
+}

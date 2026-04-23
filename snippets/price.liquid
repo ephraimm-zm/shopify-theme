@@ -1,0 +1,17 @@
+{%- if product.compare_at_price > product.price -%}
+  <span class="price price--on-sale">
+    <span class="visually-hidden">Sale price</span>
+    {{ product.price | money }}
+    <s class="price__compare">
+      <span class="visually-hidden">Regular price</span>
+      {{ product.compare_at_price | money }}
+    </s>
+  </span>
+{%- else -%}
+  <span class="price{% if product.available == false %} price--sold-out{% endif %}">
+    {%- if product.price_varies -%}
+      <span class="price__from">From </span>
+    {%- endif -%}
+    {{ product.price | money }}
+  </span>
+{%- endif -%}

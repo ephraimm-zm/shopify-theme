@@ -1,0 +1,50 @@
+{%- if section.settings.message != blank -%}
+  <div class="announcement-bar" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+    <div class="announcement-bar__inner page-width">
+      {%- if section.settings.url != blank -%}
+        <a href="{{ section.settings.url }}" class="announcement-bar__link">
+          {{ section.settings.message }}
+        </a>
+      {%- else -%}
+        <p class="announcement-bar__message">{{ section.settings.message }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "FREE DELIVERY ON ORDERS OVER £50"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Link URL"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

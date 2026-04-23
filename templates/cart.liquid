@@ -1,0 +1,96 @@
+{% layout 'theme' %}
+
+<div class="cart-page" data-cart-page>
+  <div class="page-width">
+    <h1 class="cart-page__heading">Your Bag</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" id="cart-form">
+        <div class="cart-page__grid">
+
+          <div class="cart-page__items">
+            {%- for item in cart.items -%}
+              <div class="cart-item" data-key="{{ item.key }}">
+                <a href="{{ item.url }}" class="cart-item__image-link">
+                  {{
+                    item.image
+                    | image_url: width: 200
+                    | image_tag: alt: item.title, class: 'cart-item__image', loading: 'lazy'
+                  }}
+                </a>
+
+                <div class="cart-item__details">
+                  <p class="cart-item__vendor">{{ item.vendor }}</p>
+                  <a href="{{ item.url }}" class="cart-item__name">{{ item.product_title }}</a>
+                  {%- unless item.variant.title == 'Default Title' -%}
+                    <p class="cart-item__variant">{{ item.variant.title }}</p>
+                  {%- endunless -%}
+
+                  <div class="cart-item__footer">
+                    <div class="cart-item__quantity-wrapper">
+                      <button
+                        class="cart-item__qty-btn"
+                        type="button"
+                        aria-label="Decrease quantity"
+                        data-action="decrease"
+                        data-key="{{ item.key }}"
+                      >−</button>
+                      <input
+                        class="cart-item__qty-input"
+                        type="number"
+                        name="updates[]"
+                        value="{{ item.quantity }}"
+                        min="0"
+                        aria-label="Quantity for {{ item.title }}"
+                      >
+                      <button
+                        class="cart-item__qty-btn"
+                        type="button"
+                        aria-label="Increase quantity"
+                        data-action="increase"
+                        data-key="{{ item.key }}"
+                      >+</button>
+                    </div>
+
+                    <button
+                      class="cart-item__remove"
+                      type="button"
+                      data-key="{{ item.key }}"
+                      aria-label="Remove {{ item.title }}"
+                    >Remove</button>
+
+                    <p class="cart-item__price">{{ item.final_line_price | money }}</p>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <div class="cart-page__summary">
+            <div class="cart-summary">
+              <h2 class="cart-summary__heading">Order Summary</h2>
+              <div class="cart-summary__row">
+                <span>Subtotal</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+              <p class="cart-summary__note">Shipping & taxes calculated at checkout</p>
+
+              <button type="submit" name="checkout" class="btn btn--primary btn--full">
+                Checkout
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    {%- else -%}
+      <div class="cart-page__empty">
+        <p>Your bag is empty.</p>
+        <a href="/collections/all" class="btn btn--primary">Continue Shopping</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'cart.js' | asset_url }}" defer></script>

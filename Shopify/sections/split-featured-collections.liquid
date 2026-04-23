@@ -1,0 +1,206 @@
+{{ 'section-split-featured-collections.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .split-featured-collections {
+    height: {{ section.settings.section_height }}vh;
+    min-height: 500px;
+  }
+
+  .split-featured-collections__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ section.settings.gap_size }}px;
+    height: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .split-featured-collections__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<div class="split-featured-collections section-{{ section.id }}-padding">
+  <div class="split-featured-collections__grid">
+    {%- for block in section.blocks -%}
+      {% render 'collection-feature-card',
+        collection: block.settings.collection,
+        image_override: block.settings.image_override,
+        heading_line_1: block.settings.heading_line_1,
+        heading_line_2: block.settings.heading_line_2,
+        heading_line_3: block.settings.heading_line_3,
+        accent_color: block.settings.accent_color,
+        description_text: block.settings.description_text,
+        secondary_text: block.settings.secondary_text,
+        overlay_alignment: block.settings.overlay_alignment,
+        block_shopify_attributes: block.shopify_attributes
+      %}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Split Featured Collections",
+  "tag": "section",
+  "class": "section split-featured-collections",
+  "max_blocks": 2,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "gap_size",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between blocks",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Section height",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Featured Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override (optional)",
+          "info": "Use this image instead of the collection's featured image"
+        },
+        {
+          "type": "header",
+          "content": "Heading content"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_1",
+          "label": "Heading line 1",
+          "default": "Performance"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_2",
+          "label": "Heading line 2",
+          "default": "Driven"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_3",
+          "label": "Heading line 3",
+          "default": "Essentials"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent color for line 3",
+          "default": "#FF6B6B"
+        },
+        {
+          "type": "header",
+          "content": "Supporting text"
+        },
+        {
+          "type": "text",
+          "id": "description_text",
+          "label": "Description text",
+          "default": "Engineered for excellence"
+        },
+        {
+          "type": "text",
+          "id": "secondary_text",
+          "label": "Secondary text",
+          "default": "Shop the latest collection"
+        },
+        {
+          "type": "select",
+          "id": "overlay_alignment",
+          "label": "Overlay alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Featured Collections",
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

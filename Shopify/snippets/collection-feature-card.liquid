@@ -1,0 +1,96 @@
+{% comment %}
+  Renders a collection feature card for split layout
+
+  Accepts:
+  - collection: {Object} Collection Liquid object
+  - image_override: {Object} Custom image to override collection image (optional)
+  - heading_line_1: {String} First line of heading
+  - heading_line_2: {String} Second line of heading  
+  - heading_line_3: {String} Third line of heading (accent color)
+  - accent_color: {String} Color for accent line
+  - description_text: {String} Description text
+  - secondary_text: {String} Secondary supporting text
+  - overlay_alignment: {String} Alignment of overlay (left, center, right)
+  - block_shopify_attributes: {String} Block attributes for Shopify
+
+  Usage:
+  {% render 'collection-feature-card' %}
+{% endcomment %}
+
+{%- liquid
+  assign target_image = image_override
+  if target_image == blank and collection.featured_image
+    assign target_image = collection.featured_image
+  endif
+  
+  assign card_url = collection.url
+  if collection == blank
+    assign card_url = '#'
+  endif
+  
+  assign alignment_class = 'collection-feature-card__overlay--' | append: overlay_alignment
+  if overlay_alignment == blank
+    assign alignment_class = 'collection-feature-card__overlay--left'
+  endif
+-%}
+
+<div class="collection-feature-card" {{ block_shopify_attributes }}>
+  <a href="{{ card_url }}" class="collection-feature-card__link">
+    <div class="collection-feature-card__media">
+      {%- if target_image != blank -%}
+        <img
+          srcset="
+            {%- if target_image.width >= 375 -%}{{ target_image | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if target_image.width >= 550 -%}{{ target_image | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if target_image.width >= 750 -%}{{ target_image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if target_image.width >= 1100 -%}{{ target_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+            {%- if target_image.width >= 1500 -%}{{ target_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ target_image | image_url }} {{ target_image.width }}w
+          "
+          src="{{ target_image | image_url: width: 1500 }}"
+          sizes="100vw"
+          alt="{{ target_image.alt | escape }}"
+          height="{{ target_image.height }}"
+          width="{{ target_image.width }}"
+          loading="lazy"
+          class="collection-feature-card__image"
+        >
+      {%- else -%}
+        {{ 'collection-apparel-1' | placeholder_svg_tag: 'collection-feature-card__placeholder' }}
+      {%- endif -%}
+      
+      <div class="collection-feature-card__overlay {{ alignment_class }}">
+        <div class="collection-feature-card__content">
+          {%- if heading_line_1 != blank or heading_line_2 != blank or heading_line_3 != blank -%}
+            <div class="collection-feature-card__heading">
+              {%- if heading_line_1 != blank -%}
+                <div class="collection-feature-card__heading-line">{{ heading_line_1 | escape }}</div>
+              {%- endif -%}
+              {%- if heading_line_2 != blank -%}
+                <div class="collection-feature-card__heading-line">{{ heading_line_2 | escape }}</div>
+              {%- endif -%}
+              {%- if heading_line_3 != blank -%}
+                <div class="collection-feature-card__heading-line collection-feature-card__heading-line--accent" style="--accent-color: {{ accent_color }};">
+                  {{ heading_line_3 | escape }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          
+          {%- if description_text != blank -%}
+            <div class="collection-feature-card__description">{{ description_text | escape }}</div>
+          {%- endif -%}
+          
+          {%- if secondary_text != blank -%}
+            <div class="collection-feature-card__secondary">{{ secondary_text | escape }}</div>
+          {%- endif -%}
+          
+          <div class="collection-feature-card__cta">
+            <span class="collection-feature-card__cta-text">Shop Now</span>
+            <div class="collection-feature-card__cta-underline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

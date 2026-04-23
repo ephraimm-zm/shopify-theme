@@ -3,8 +3,10 @@
 
   Accepts:
   - product: {Object} Product Liquid object
+  - image_override: {Object} Custom image to override product image (optional)
   - badge_text: {String} Badge text to display
   - show_badge: {Boolean} Whether to show badge
+  - block_shopify_attributes: {String} Block attributes for Shopify
 
   Usage:
   {% render 'premium-product-card', product: product %}
@@ -24,23 +26,28 @@
       assign featured_image = product.featured_image
     endif
   endif
+  
+  assign target_image = image_override
+  if target_image == blank and featured_image != blank
+    assign target_image = featured_image
+  endif
 -%}
 
-<a href="{{ card_url }}" class="premium-product-card">
+<a href="{{ card_url }}" class="premium-product-card" {{ block_shopify_attributes }}>
   <div class="premium-product-card__media">
-    {%- if featured_image != blank -%}
+    {%- if target_image != blank -%}
       <img
         srcset="
-          {%- if featured_image.width >= 375 -%}{{ featured_image | image_url: width: 375 }} 375w,{%- endif -%}
-          {%- if featured_image.width >= 550 -%}{{ featured_image | image_url: width: 550 }} 550w,{%- endif -%}
-          {%- if featured_image.width >= 750 -%}{{ featured_image | image_url: width: 750 }} 750w,{%- endif -%}
-          {{ featured_image | image_url }} {{ featured_image.width }}w
+          {%- if target_image.width >= 375 -%}{{ target_image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if target_image.width >= 550 -%}{{ target_image | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if target_image.width >= 750 -%}{{ target_image | image_url: width: 750 }} 750w,{%- endif -%}
+          {{ target_image | image_url }} {{ target_image.width }}w
         "
-        src="{{ featured_image | image_url: width: 550 }}"
+        src="{{ target_image | image_url: width: 550 }}"
         sizes="(min-width: 750px) calc((100vw - 80px - 3 * var(--gap-size, 24px)) / 4), calc((100vw - 40px - var(--gap-size, 24px)) / 2)"
-        alt="{{ featured_image.alt | escape }}"
-        height="{{ featured_image.height }}"
-        width="{{ featured_image.width }}"
+        alt="{{ target_image.alt | escape }}"
+        height="{{ target_image.height }}"
+        width="{{ target_image.width }}"
         loading="lazy"
         class="premium-product-card__image"
       >
@@ -51,7 +58,7 @@
     {%- endif -%}
     
     {%- if show_badge and badge_text != blank -%}
-      <div class="premium-product-card__badge">{{ badge_text }}</div>
+      <div class="premium-product-card__badge" style="--badge-bg: {{ badge_color }}; --badge-text: {{ badge_text_color }};">{{ badge_text }}</div>
     {%- endif -%}
   </div>
   

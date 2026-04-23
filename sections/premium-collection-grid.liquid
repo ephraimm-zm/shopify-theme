@@ -23,27 +23,22 @@
 
 <div class="premium-collection-grid section-{{ section.id }}-padding">
   <div class="premium-collection-grid__container">
-    {%- if section.settings.collection != blank -%}
-      <div class="premium-collection-grid__grid">
-        {%- for product in section.settings.collection.products limit: 4 -%}
-          {% render 'premium-product-card',
-            product: product,
-            badge_text: section.settings.badge_text,
-            show_badge: section.settings.show_badge
-          %}
-        {%- endfor -%}
+    {%- if section.settings.title != blank -%}
+      <div class="premium-collection-grid__header">
+        <h2 class="premium-collection-grid__title">{{ section.settings.title | escape }}</h2>
       </div>
-    {%- else -%}
-      <div class="premium-collection-grid__grid">
-        {%- for i in (1..4) -%}
-          {% render 'premium-product-card',
-            product: nil,
-            badge_text: section.settings.badge_text,
-            show_badge: section.settings.show_badge
-          %}
-        {%- endfor -%}
-      }
     {%- endif -%}
+    <div class="premium-collection-grid__grid">
+      {%- for block in section.blocks -%}
+        {% render 'premium-product-card',
+          product: block.settings.product,
+          image_override: block.settings.image_override,
+          badge_text: block.settings.badge_text,
+          show_badge: block.settings.show_badge,
+          block_shopify_attributes: block.shopify_attributes
+        %}
+      {%- endfor -%}
+    </div>
   </div>
 </div>
 
@@ -52,14 +47,16 @@
   "name": "Premium Collection Grid",
   "tag": "section",
   "class": "section premium-collection-grid",
+  "max_blocks": 4,
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "FEATURED PRODUCTS"
     },
     {
       "type": "header",
@@ -87,34 +84,6 @@
     },
     {
       "type": "header",
-      "content": "Badge settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_badge",
-      "label": "Show badge",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "badge_text",
-      "label": "Badge text",
-      "default": "NEW"
-    },
-    {
-      "type": "color",
-      "id": "badge_color",
-      "label": "Badge background",
-      "default": "#FF6B6B"
-    },
-    {
-      "type": "color",
-      "id": "badge_text_color",
-      "label": "Badge text color",
-      "default": "#000000"
-    },
-    {
-      "type": "header",
       "content": "Section padding"
     },
     {
@@ -138,9 +107,70 @@
       "default": 60
     }
   ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override (optional)",
+          "info": "Use this image instead of the product's featured image"
+        },
+        {
+          "type": "header",
+          "content": "Badge settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badge",
+          "label": "Show badge",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "NEW"
+        },
+        {
+          "type": "color",
+          "id": "badge_color",
+          "label": "Badge background",
+          "default": "#FF6B6B"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Premium Collection Grid"
+      "name": "Premium Collection Grid",
+      "blocks": [
+        {
+          "type": "product_card"
+        },
+        {
+          "type": "product_card"
+        },
+        {
+          "type": "product_card"
+        },
+        {
+          "type": "product_card"
+        }
+      ]
     }
   ]
 }

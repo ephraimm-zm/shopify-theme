@@ -124,14 +124,62 @@
     },
     "premium_collection_grid": {
       "type": "premium-collection-grid",
+      "blocks": {
+        "product_1": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#FF6B6B",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_2": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "",
+            "show_badge": true,
+            "badge_text": "-30%",
+            "badge_color": "#4ECDC4",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_3": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "",
+            "show_badge": true,
+            "badge_text": "SALE",
+            "badge_color": "#FFD93D",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_4": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "",
+            "show_badge": false,
+            "badge_text": "",
+            "badge_color": "#FF6B6B",
+            "badge_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4"
+      ],
       "settings": {
-        "collection": "frontpage",
+        "title": "FEATURED PRODUCTS",
         "gap_size": 24,
         "max_width": 1200,
-        "show_badge": true,
-        "badge_text": "NEW",
-        "badge_color": "#FF6B6B",
-        "badge_text_color": "#000000",
         "padding_top": 60,
         "padding_bottom": 60
       }

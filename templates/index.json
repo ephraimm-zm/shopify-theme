@@ -89,7 +89,7 @@
             "heading_line_1": "Performance",
             "heading_line_2": "Driven",
             "heading_line_3": "Essentials",
-            "accent_color": "#FF6B6B",
+            "accent_color": "#ff6b6b",
             "description_text": "Engineered for excellence",
             "secondary_text": "Shop the latest collection",
             "overlay_alignment": "left"
@@ -103,7 +103,7 @@
             "heading_line_1": "Performance",
             "heading_line_2": "Driven",
             "heading_line_3": "Essentials",
-            "accent_color": "#FF6B6B",
+            "accent_color": "#ff6b6b",
             "description_text": "Engineered for excellence",
             "secondary_text": "Shop the latest collection",
             "overlay_alignment": "left"
@@ -183,12 +183,24 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "premium_collection_grid_cJU9Rh": {
+      "type": "premium-collection-grid",
+      "name": "Premium Collection Grid",
+      "settings": {
+        "collection": "automated-collection",
+        "gap_size": 24,
+        "max_width": 1200,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "split_featured_collections_ArCTJ3",
-    "premium_collection_grid"
+    "premium_collection_grid",
+    "premium_collection_grid_cJU9Rh"
   ]
 }

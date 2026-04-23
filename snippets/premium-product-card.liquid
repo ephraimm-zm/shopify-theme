@@ -1,0 +1,68 @@
+{% comment %}
+  Renders a premium product card for Gymshark-style grid
+
+  Accepts:
+  - product: {Object} Product Liquid object
+  - badge_text: {String} Badge text to display
+  - show_badge: {Boolean} Whether to show badge
+
+  Usage:
+  {% render 'premium-product-card', product: product %}
+{% endcomment %}
+
+{%- liquid
+  assign card_url = '#'
+  assign card_title = 'Product Name'
+  assign card_price = '0.00'
+  assign featured_image = nil
+  
+  if product != blank
+    assign card_url = product.url
+    assign card_title = product.title
+    assign card_price = product.price | money
+    if product.featured_image
+      assign featured_image = product.featured_image
+    endif
+  endif
+-%}
+
+<a href="{{ card_url }}" class="premium-product-card">
+  <div class="premium-product-card__media">
+    {%- if featured_image != blank -%}
+      <img
+        srcset="
+          {%- if featured_image.width >= 375 -%}{{ featured_image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if featured_image.width >= 550 -%}{{ featured_image | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if featured_image.width >= 750 -%}{{ featured_image | image_url: width: 750 }} 750w,{%- endif -%}
+          {{ featured_image | image_url }} {{ featured_image.width }}w
+        "
+        src="{{ featured_image | image_url: width: 550 }}"
+        sizes="(min-width: 750px) calc((100vw - 80px - 3 * var(--gap-size, 24px)) / 4), calc((100vw - 40px - var(--gap-size, 24px)) / 2)"
+        alt="{{ featured_image.alt | escape }}"
+        height="{{ featured_image.height }}"
+        width="{{ featured_image.width }}"
+        loading="lazy"
+        class="premium-product-card__image"
+      >
+    {%- else -%}
+      <div class="premium-product-card__placeholder">
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
+    
+    {%- if show_badge and badge_text != blank -%}
+      <div class="premium-product-card__badge">{{ badge_text }}</div>
+    {%- endif -%}
+  </div>
+  
+  <div class="premium-product-card__info">
+    <div class="premium-product-card__title-price">
+      <h3 class="premium-product-card__full-title">
+        {{ card_title }}
+      </h3>
+      <p class="premium-product-card__from-price">
+        FROM {{ card_price }}
+      </p>
+    </div>
+  </div>
+</a>

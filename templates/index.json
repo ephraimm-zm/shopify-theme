@@ -121,11 +121,26 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "premium_collection_grid": {
+      "type": "premium-collection-grid",
+      "settings": {
+        "collection": "frontpage",
+        "gap_size": 24,
+        "max_width": 1200,
+        "show_badge": true,
+        "badge_text": "NEW",
+        "badge_color": "#FF6B6B",
+        "badge_text_color": "#000000",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "split_featured_collections_ArCTJ3"
+    "split_featured_collections_ArCTJ3",
+    "premium_collection_grid"
   ]
 }

@@ -44,7 +44,7 @@
           {{ target_image | image_url }} {{ target_image.width }}w
         "
         src="{{ target_image | image_url: width: 550 }}"
-        sizes="(min-width: 750px) calc((100vw - 80px - 3 * var(--gap-size, 24px)) / 4), calc((100vw - 40px - var(--gap-size, 24px)) / 2)"
+        sizes="(min-width: 750px) calc((100vw - 80px - 3 * var(--column-gap, 4px)) / 4), calc((100vw - 40px - var(--column-gap, 4px)) / 2)"
         alt="{{ target_image.alt | escape }}"
         height="{{ target_image.height }}"
         width="{{ target_image.width }}"
@@ -62,14 +62,15 @@
     {%- endif -%}
   </div>
   
-  <div class="premium-product-card__info">
-    <div class="premium-product-card__title-price">
-      <h3 class="premium-product-card__full-title">
-        {{ card_title }}
-      </h3>
-      <p class="premium-product-card__from-price">
-        FROM {{ card_price }}
-      </p>
+  <div class="premium-product-card__content">
+    <div class="premium-product-card__copy">
+      <h4 class="premium-product-card__title">{{ card_title }}</h4>
+      <p class="premium-product-card__price">{{ card_price }}</p>
     </div>
+    <span class="premium-product-card__chevron" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
   </div>
 </a>

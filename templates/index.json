@@ -191,7 +191,7 @@
           "type": "product_card",
           "settings": {
             "product": "",
-            "image_override": "shopify://shop_images/gymshark3.avif",
+            "image_override": "shopify://shop_images/image.avif",
             "show_badge": true,
             "badge_text": "NEW",
             "badge_color": "#ff6b6b",
@@ -202,7 +202,7 @@
           "type": "product_card",
           "settings": {
             "product": "",
-            "image_override": "shopify://shop_images/gymshark4.avif",
+            "image_override": "shopify://shop_images/image_1.avif",
             "show_badge": true,
             "badge_text": "NEW",
             "badge_color": "#ff6b6b",
@@ -213,7 +213,7 @@
           "type": "product_card",
           "settings": {
             "product": "the-collection-snowboard-hydrogen",
-            "image_override": "shopify://shop_images/gymshark5.avif",
+            "image_override": "shopify://shop_images/image_2.avif",
             "show_badge": true,
             "badge_text": "NEW",
             "badge_color": "#ff6b6b",
@@ -224,7 +224,7 @@
           "type": "product_card",
           "settings": {
             "product": "the-3p-fulfilled-snowboard",
-            "image_override": "shopify://shop_images/gymshark6.avif",
+            "image_override": "shopify://shop_images/image_3.avif",
             "show_badge": true,
             "badge_text": "NEW",
             "badge_color": "#ff6b6b",

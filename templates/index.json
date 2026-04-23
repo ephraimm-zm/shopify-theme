@@ -179,7 +179,7 @@
       "settings": {
         "title": "FEATURED PRODUCTS",
         "gap_size": 24,
-        "max_width": 1000,
+        "max_width": 1600,
         "padding_top": 32,
         "padding_bottom": 32
       }

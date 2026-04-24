@@ -53,68 +53,6 @@
         "padding_bottom": 0
       }
     },
-    "premium_collection_grid_eDf3TY": {
-      "type": "premium-collection-grid",
-      "blocks": {
-        "product_card_6CPQBE": {
-          "type": "product_card",
-          "settings": {
-            "product": "",
-            "image_override": "shopify://shop_images/image.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        },
-        "product_card_BTVrNn": {
-          "type": "product_card",
-          "settings": {
-            "product": "",
-            "image_override": "shopify://shop_images/image_1.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        },
-        "product_card_rJhrFx": {
-          "type": "product_card",
-          "settings": {
-            "product": "the-collection-snowboard-hydrogen",
-            "image_override": "shopify://shop_images/image_2.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        },
-        "product_card_FwwwDW": {
-          "type": "product_card",
-          "settings": {
-            "product": "the-3p-fulfilled-snowboard",
-            "image_override": "shopify://shop_images/image_3.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "product_card_6CPQBE",
-        "product_card_BTVrNn",
-        "product_card_rJhrFx",
-        "product_card_FwwwDW"
-      ],
-      "settings": {
-        "title": "mens",
-        "gap_size": 20,
-        "max_width": 1600,
-        "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
     "premium_collection_cards": {
       "type": "premium-collection-cards",
       "blocks": {
@@ -175,6 +113,68 @@
         "max_width": 1200,
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "premium_collection_grid_eDf3TY": {
+      "type": "premium-collection-grid",
+      "blocks": {
+        "product_card_6CPQBE": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "shopify://shop_images/image.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_card_BTVrNn": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "shopify://shop_images/image_1.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_card_rJhrFx": {
+          "type": "product_card",
+          "settings": {
+            "product": "the-collection-snowboard-hydrogen",
+            "image_override": "shopify://shop_images/image_2.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_card_FwwwDW": {
+          "type": "product_card",
+          "settings": {
+            "product": "the-3p-fulfilled-snowboard",
+            "image_override": "shopify://shop_images/image_3.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_6CPQBE",
+        "product_card_BTVrNn",
+        "product_card_rJhrFx",
+        "product_card_FwwwDW"
+      ],
+      "settings": {
+        "title": "mens",
+        "gap_size": 20,
+        "max_width": 1600,
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "premium_collection_cards_Fy3BmK": {

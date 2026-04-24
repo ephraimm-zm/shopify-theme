@@ -122,6 +122,192 @@
         "padding_bottom": 0
       }
     },
+    "premium_collection_grid_eDf3TY": {
+      "type": "premium-collection-grid",
+      "blocks": {
+        "product_card_6CPQBE": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "shopify://shop_images/image.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_card_BTVrNn": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "image_override": "shopify://shop_images/image_1.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_card_rJhrFx": {
+          "type": "product_card",
+          "settings": {
+            "product": "the-collection-snowboard-hydrogen",
+            "image_override": "shopify://shop_images/image_2.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "product_card_FwwwDW": {
+          "type": "product_card",
+          "settings": {
+            "product": "the-3p-fulfilled-snowboard",
+            "image_override": "shopify://shop_images/image_3.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_6CPQBE",
+        "product_card_BTVrNn",
+        "product_card_rJhrFx",
+        "product_card_FwwwDW"
+      ],
+      "settings": {
+        "title": "mens",
+        "gap_size": 20,
+        "max_width": 1600,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "premium_collection_cards": {
+      "type": "premium-collection-cards",
+      "blocks": {
+        "collection_1": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/gymshark3.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "collection_2": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/gymshark4.avif",
+            "show_badge": true,
+            "badge_text": "TRENDING",
+            "badge_color": "#4ecdc4",
+            "badge_text_color": "#000000"
+          }
+        },
+        "collection_3": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/gymshark5.avif",
+            "show_badge": true,
+            "badge_text": "SALE",
+            "badge_color": "#ffd93d",
+            "badge_text_color": "#000000"
+          }
+        },
+        "collection_4": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/gymshark6.avif",
+            "show_badge": false,
+            "badge_text": "New",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4"
+      ],
+      "settings": {
+        "title": "FEATURED COLLECTIONS",
+        "gap_size": 24,
+        "max_width": 1200,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "premium_collection_cards_Fy3BmK": {
+      "type": "premium-collection-cards",
+      "blocks": {
+        "collection_card_wjCRLR": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/image.avif",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        },
+        "collection_card_FWMTqT": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/image_1.avif",
+            "show_badge": true,
+            "badge_text": "TRENDING",
+            "badge_color": "#4ecdc4",
+            "badge_text_color": "#000000"
+          }
+        },
+        "collection_card_7UDxRB": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/image_2.avif",
+            "show_badge": true,
+            "badge_text": "SALE",
+            "badge_color": "#ffd93d",
+            "badge_text_color": "#000000"
+          }
+        },
+        "collection_card_4tEftF": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "shopify://shop_images/gymshark6.avif",
+            "show_badge": false,
+            "badge_text": "New",
+            "badge_color": "#ff6b6b",
+            "badge_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_wjCRLR",
+        "collection_card_FWMTqT",
+        "collection_card_7UDxRB",
+        "collection_card_4tEftF"
+      ],
+      "settings": {
+        "title": "FEATURED COLLECTIONS",
+        "gap_size": 24,
+        "max_width": 1200,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "premium_collection_grid": {
       "type": "premium-collection-grid",
       "blocks": {
@@ -176,6 +362,7 @@
         "product_card_FiFaYL",
         "product_card_GTNN69"
       ],
+      "disabled": true,
       "settings": {
         "title": "FEATURED PRODUCTS",
         "gap_size": 20,
@@ -183,233 +370,15 @@
         "padding_top": 32,
         "padding_bottom": 32
       }
-    },
-    "premium_collection_grid_eDf3TY": {
-      "type": "premium-collection-grid",
-      "blocks": {
-        "product_card_6CPQBE": {
-          "type": "product_card",
-          "settings": {
-            "product": "",
-            "image_override": "shopify://shop_images/image.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        },
-        "product_card_BTVrNn": {
-          "type": "product_card",
-          "settings": {
-            "product": "",
-            "image_override": "shopify://shop_images/image_1.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        },
-        "product_card_rJhrFx": {
-          "type": "product_card",
-          "settings": {
-            "product": "the-collection-snowboard-hydrogen",
-            "image_override": "shopify://shop_images/image_2.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-          }
-        },
-        "product_card_FwwwDW": {
-          "type": "product_card",
-          "settings": {
-            "product": "the-3p-fulfilled-snowboard",
-            "image_override": "shopify://shop_images/image_3.avif",
-            "show_badge": true,
-            "badge_text": "NEW",
-            "badge_color": "#ff6b6b",
-            "badge_text_color": "#000000"
-        }
-      },
-      "product_card_VbbVqM": {
-        "type": "product_card",
-        "settings": {
-          "product": "",
-          "image_override": "shopify://shop_images/gymshark4.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      },
-      "product_card_FiFaYL": {
-        "type": "product_card",
-        "settings": {
-          "product": "the-collection-snowboard-hydrogen",
-          "image_override": "shopify://shop_images/gymshark5.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      },
-      "product_card_GTNN69": {
-        "type": "product_card",
-        "settings": {
-          "product": "the-3p-fulfilled-snowboard",
-          "image_override": "shopify://shop_images/gymshark6.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      }
-    },
-    "block_order": [
-      "product_card_BpyM9m",
-      "product_card_VbbVqM",
-      "product_card_FiFaYL",
-      "product_card_GTNN69"
-    ],
-    "settings": {
-      "title": "FEATURED PRODUCTS",
-      "gap_size": 20,
-      "max_width": 1600,
-      "padding_top": 32,
-      "padding_bottom": 32
     }
-  },
-  "premium_collection_grid_eDf3TY": {
-    "type": "premium-collection-grid",
-    "blocks": {
-      "product_card_6CPQBE": {
-        "type": "product_card",
-        "settings": {
-          "product": "",
-          "image_override": "shopify://shop_images/image.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      },
-      "product_card_BTVrNn": {
-        "type": "product_card",
-        "settings": {
-          "product": "",
-          "image_override": "shopify://shop_images/image_1.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      },
-      "product_card_rJhrFx": {
-        "type": "product_card",
-        "settings": {
-          "product": "the-collection-snowboard-hydrogen",
-          "image_override": "shopify://shop_images/image_2.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      },
-      "product_card_FwwwDW": {
-        "type": "product_card",
-        "settings": {
-          "product": "the-3p-fulfilled-snowboard",
-          "image_override": "shopify://shop_images/image_3.avif",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#ff6b6b",
-          "badge_text_color": "#000000"
-        }
-      }
-    },
-    "block_order": [
-      "product_card_6CPQBE",
-      "product_card_BTVrNn",
-      "product_card_rJhrFx",
-      "product_card_FwwwDW"
-    ],
-    "settings": {
-      "title": "mens",
-      "gap_size": 20,
-      "max_width": 1600,
-      "padding_top": 32,
-      "padding_bottom": 32
-    }
-  },
-  "premium_collection_cards": {
-    "type": "premium-collection-cards",
-    "blocks": {
-      "collection_1": {
-        "type": "collection_card",
-        "settings": {
-          "collection": "",
-          "image_override": "",
-          "show_badge": true,
-          "badge_text": "NEW",
-          "badge_color": "#FF6B6B",
-          "badge_text_color": "#000000"
-        }
-      },
-      "collection_2": {
-        "type": "collection_card",
-        "settings": {
-          "collection": "",
-          "image_override": "",
-          "show_badge": true,
-          "badge_text": "TRENDING",
-          "badge_color": "#4ECDC4",
-          "badge_text_color": "#000000"
-        }
-      },
-      "collection_3": {
-        "type": "collection_card",
-        "settings": {
-          "collection": "",
-          "image_override": "",
-          "show_badge": true,
-          "badge_text": "SALE",
-          "badge_color": "#FFD93D",
-          "badge_text_color": "#000000"
-        }
-      },
-      "collection_4": {
-        "type": "collection_card",
-        "settings": {
-          "collection": "",
-          "image_override": "",
-          "show_badge": false,
-          "badge_text": "",
-          "badge_color": "#FF6B6B",
-          "badge_text_color": "#000000"
-        }
-      }
-    },
-    "block_order": [
-      "collection_1",
-      "collection_2",
-      "collection_3",
-      "collection_4"
-    ],
-    "settings": {
-      "title": "FEATURED COLLECTIONS",
-      "gap_size": 24,
-      "max_width": 1200,
-      "padding_top": 60,
-      "padding_bottom": 60
-    }
-  }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "split_featured_collections_ArCTJ3",
-    "premium_collection_grid",
     "premium_collection_grid_eDf3TY",
-    "premium_collection_cards"
+    "premium_collection_cards",
+    "premium_collection_cards_Fy3BmK",
+    "premium_collection_grid"
   ]
 }

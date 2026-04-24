@@ -1,0 +1,78 @@
+{% comment %}
+  Renders a premium collection card for Gymshark-style grid
+
+  Accepts:
+  - collection: {Object} Collection Liquid object
+  - image_override: {Object} Custom image to override collection image (optional)
+  - badge_text: {String} Badge text to display
+  - show_badge: {Boolean} Whether to show badge
+  - block_shopify_attributes: {String} Block attributes for Shopify
+
+  Usage:
+  {% render 'premium-collection-card', collection: collection %}
+{% endcomment %}
+
+{%- liquid
+  assign card_url = '#'
+  assign card_title = 'Collection Name'
+  assign card_description = 'Collection description'
+  assign featured_image = nil
+  
+  if collection != blank
+    assign card_url = collection.url
+    assign card_title = collection.title
+    assign card_description = collection.description | strip_html | truncate: 50
+    if collection.featured_image
+      assign featured_image = collection.featured_image
+    endif
+  endif
+  
+  assign target_image = image_override
+  if target_image == blank and featured_image != blank
+    assign target_image = featured_image
+  endif
+-%}
+
+<a href="{{ card_url }}" class="premium-product-card" {{ block_shopify_attributes }}>
+  <div class="premium-product-card__media">
+    {%- if target_image != blank -%}
+      <img
+        srcset="
+          {%- if target_image.width >= 375 -%}{{ target_image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if target_image.width >= 550 -%}{{ target_image | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if target_image.width >= 750 -%}{{ target_image | image_url: width: 750 }} 750w,{%- endif -%}
+          {{ target_image | image_url }} {{ target_image.width }}w
+        "
+        src="{{ target_image | image_url: width: 550 }}"
+        sizes="(min-width: 750px) calc((100vw - 80px - 3 * var(--column-gap, 4px)) / 4), calc((100vw - 40px - var(--column-gap, 4px)) / 2)"
+        alt="{{ target_image.alt | escape }}"
+        height="{{ target_image.height }}"
+        width="{{ target_image.width }}"
+        loading="lazy"
+        class="premium-product-card__image"
+      >
+    {%- else -%}
+      <div class="premium-product-card__placeholder">
+        {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
+    
+    {%- if show_badge and badge_text != blank -%}
+      <div class="premium-product-card__badge" style="--badge-bg: {{ badge_color }}; --badge-text: {{ badge_text_color }};">{{ badge_text }}</div>
+    {%- endif -%}
+  </div>
+  
+  <div class="premium-product-card__content">
+    <div class="premium-product-card__copy">
+      <h4 class="premium-product-card__title">{{ card_title }}</h4>
+      {%- if card_description != blank -%}
+        <p class="premium-product-card__description">{{ card_description }}</p>
+      {%- endif -%}
+    </div>
+    <span class="premium-product-card__chevron" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </div>
+</a>

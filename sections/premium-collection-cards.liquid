@@ -1,0 +1,196 @@
+{{ 'section-premium-collection-grid.css' | stylesheet_tag }}
+
+<div class="premium-collection-grid section-{{ section.id }}-padding">
+  <div class="premium-collection-grid__container">
+    {%- if section.settings.title != blank -%}
+      <div class="premium-collection-grid__header">
+        <h2 class="premium-collection-grid__title">{{ section.settings.title | escape }}</h2>
+      </div>
+    {%- endif -%}
+    <div class="premium-collection-grid__grid">
+      {%- for block in section.blocks -%}
+        {% render 'premium-collection-card',
+          collection: block.settings.collection,
+          image_override: block.settings.image_override,
+          badge_text: block.settings.badge_text,
+          show_badge: block.settings.show_badge,
+          block_shopify_attributes: block.shopify_attributes
+        %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Premium Collection Cards",
+  "tag": "section",
+  "class": "section premium-collection-cards",
+  "max_blocks": 8,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "FEATURED COLLECTIONS"
+    },
+    {
+      "type": "header",
+      "content": "Layout settings"
+    },
+    {
+      "type": "range",
+      "id": "gap_size",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap between cards",
+      "default": 24,
+      "info": "Controls spacing between collection cards"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection Card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override (optional)",
+          "info": "Use this image instead of the collection's featured image"
+        },
+        {
+          "type": "header",
+          "content": "Badge settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badge",
+          "label": "Show badge",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "NEW"
+        },
+        {
+          "type": "color",
+          "id": "badge_color",
+          "label": "Badge background",
+          "default": "#FF6B6B"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Collection Cards",
+      "blocks": [
+        {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "",
+            "show_badge": true,
+            "badge_text": "NEW",
+            "badge_color": "#FF6B6B",
+            "badge_text_color": "#000000"
+          }
+        },
+        {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "",
+            "show_badge": true,
+            "badge_text": "TRENDING",
+            "badge_color": "#4ECDC4",
+            "badge_text_color": "#000000"
+          }
+        },
+        {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "",
+            "show_badge": true,
+            "badge_text": "SALE",
+            "badge_color": "#FFD93D",
+            "badge_text_color": "#000000"
+          }
+        },
+        {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "image_override": "",
+            "show_badge": false,
+            "badge_text": "",
+            "badge_color": "#FF6B6B",
+            "badge_text_color": "#000000"
+          }
+        }
+      ],
+      "settings": {
+        "title": "FEATURED COLLECTIONS",
+        "gap_size": 24,
+        "max_width": 1200,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  ]
+}
+{% endschema %}
